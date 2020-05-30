@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    RED.nodes.registerType('aircraft', {
+        category: 'function',
+        color: '#00A0E2',
+        defaults: {
+            name: { value: "" },
+            server: { value: "http://piaware.local:8080" },
+            radius: { value: 80000 },
+            maxAltitude: { value: 12000 }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-plane",
+        label: function () {
+            return this.name || "aircraft.json";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="aircraft">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Piaware Server</label>
+        <input type="text" id="node-input-server" placeholder="">
+    </div>
+    <div class="form-row">
+        <label for="node-input-radius"><i class="icon-tag"></i> Radius</label>
+        <input type="text" id="node-input-radius" placeholder="">
+    </div>
+    <div class="form-row">
+        <label for="node-input-maxAltitude"><i class="icon-tag"></i> Max Altitude</label>
+        <input type="text" id="node-input-maxAltitude" placeholder="">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="aircraft">
+    <p>Parse's the piaware's aircraft.json file, filters out any records without location, and returns the closest aircraft</p>
+</script>
